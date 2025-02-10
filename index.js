@@ -34,7 +34,7 @@ app.use(cors({ origin: "*" }));
 
 // Create Account
 app.post("/create-account", async (req, res) => {
-  const { fullName, email, password } = req.body;
+  const { fullName, email, password } = req.body; 
 
   if (!fullName || !email || !password) {
     return res
