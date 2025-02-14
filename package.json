@@ -1,13 +1,20 @@
 {
   "dependencies": {
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "mongoose": "^8.10.0"
   },
   "scripts": {
-    "serve": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon --ext ts --exec ts-node -r dotenv/config src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
   },
   "devDependencies": {
-    "nodemon": "^3.1.9"
+    "@types/express": "^5.0.0",
+    "@types/mongoose": "^5.11.96",
+    "@types/node": "^22.13.4",
+    "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
   }
 }
