@@ -213,17 +213,20 @@ app.post("/add-travel-story", authenticateToken, async (req, res) => {
 
 // Get All Travel Stories
 app.get("/get-all-stories", authenticateToken, async (req, res) => {
-  const { userId } = req.user;
+
+  const { userId } = req.user; 
 
   try {
     const travelStories = await TravelStory.find({ userId: userId }).sort({
       isFavourite: -1,
     });
-    res.status(200).json({ stories: travelStories });
+    res.status(200).json({ stories: travelStories }); 
   } catch (error) {
     res.status(500).json({ error: true, message: error.message });
   }
 });
+
+
 
 // Edit Travel Story
 app.put("/edit-story/:id", authenticateToken, async (req, res) => {
