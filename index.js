@@ -33,7 +33,7 @@ app.use(express.json());
 app.use(cors({ origin: "*" }));
 
 // Create Account
-app.post("/create-account", async (req, res) => {
+app.post("/create-account", async (req, res) => { 
   const { fullName, email, password } = req.body; 
 
   if (!fullName || !email || !password) {
@@ -379,7 +379,7 @@ app.get("/travel-stories/filter", authenticateToken, async (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.send("Travel Story App Backend");
+  res.send("Tripline app API");
 }
 );
 app.listen(8000);
