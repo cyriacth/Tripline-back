@@ -109,6 +109,22 @@ app.post("/login", async (req, res) => {
   });
 });
 
+// Get User
+app.get("/get-user", authenticateToken, async (req, res) => {
+  const { userId } = req.user;
+
+  const isUser = await User.findOne({ _id: userId });
+
+  if (!isUser) {
+    return res.sendStatus(401);
+  }
+
+  return res.json({
+    user: isUser,
+    message: "",
+  });
+});
+
 // Route to handle image upload
 app.post("/image-upload", upload.single("image"), async (req, res) => {
   try {
